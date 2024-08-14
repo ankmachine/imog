@@ -5,11 +5,9 @@ use num_traits::{Zero, One};
 
 fn main() {
     println!("Hello, world!");
-    let x = Array1::from_vec(vec![1f64, 2.0, 3.0, 4.0]);
-    println!("{:?}",fft(x.view()));
-    let p1 = Array1::from_vec(vec![-1.,1.]).pow(4);
+    let p1 = Array1::from_vec(vec![-1.,1.]);
     let p2 = Array1::from_vec(vec![-1.,1.]);
-    let fft = p1.fft_mul(&p2, 10);
+    let fft = fft_mul(p1.view(), p2.view(), 10);
     // assert_eq!(p1.multiply(&p2), fft);
     println!("{:?}", fft)
 }
